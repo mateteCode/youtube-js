@@ -11,108 +11,276 @@
   <h1>Ejercicios de Programación en JavaScript</h1>
   <script>
     /* 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFunción("Hola Mundo") devolverá 10 */
-
+    
+/*     const contadorCaracteres = str => (typeof str === "string" ? str.length : -1);
+    
+    console.log(contadorCaracteres("Hola"));
+    console.log(contadorCaracteres(""));
+    console.log(contadorCaracteres(" "));
+    console.log(contadorCaracteres(33));
+    console.log(contadorCaracteres()); */
 
     /* 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFunción("Hola Mundo", 4) devolverá "Hola" */
+/*     const recortarCaracteres = (str, num) => (typeof str === "string" ? str.substr(0, num) : -1);
 
-
+    console.log(recortarCaracteres("Hola mundo", 6));
+    console.log(recortarCaracteres("", 3));
+    console.log(recortarCaracteres("abc", 4));
+    console.log(recortarCaracteres(33, 6));
+    console.log(recortarCaracteres());
+ */
 
     /* 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe.
      miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'] */
 
+/*     const toArray = (str, chr=" ") => (typeof str === "string" && typeof chr === "string" ? str.split(chr) : null);
+    console.log(toArray("Juan se fue al bosque y volvio sucio", " "));
+    console.log(toArray("Juan se fue al bosque y volvio sucio", "y"));
+    console.log(toArray("Juan se fue al bosque y volvio sucio", 6))
+    console.log(toArray(new Date().toString())); */
 
 
     /* 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo */
 
-
+/*     const repetirTexto = (str, num=1) => (typeof str === "string" && typeof num === "number" && num>=0? str.repeat(num) : null);
+    console.log(repetirTexto("Copiame", 4));
+    console.log(repetirTexto("Copiame"));
+    console.log(repetirTexto("Copiame", -1));
+    console.log(repetirTexto("1", 6));
+    console.log(repetirTexto("abc", "f"));
+    console.log(repetirTexto("abc", 0)); */
 
     /* 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH" */
 
-
+/*     const invertirTexto = (str) => (typeof str === "string" ? str.split("").reverse().join("") : null);
+    console.log(invertirTexto("Hola mundo"));
+ */
 
     /* 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2 */
+/*     const contarPalabras = (str, palabra) => (typeof str === "string" && typeof palabra === "string" ? str.split(" ").filter(function(elem) {return elem===palabra}).length : -1);
 
-
+    console.log(contarPalabras("hola buen dia bebe como esta buen domingo para todos buen asado", "buen"));
+    console.log(contarPalabras("hola buen dia bebe como esta buen domingo para todos buen asado", "casa"));
+    console.log(contarPalabras("hola buen dia bebe como esta buen domingo para todos buen asado", 5));
+    console.log(contarPalabras()) */
 
     /* 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true */
-
-
-
+/*     const isPalindromo = str => (typeof str === "string" ? str.toLowerCase().split("").reverse().join("") === str.toLowerCase() : null);
+    console.log(isPalindromo("Salas"));
+    console.log(isPalindromo("hola mundo"));
+    console.log(isPalindromo());
+    console.log(isPalindromo(44)); */
+    
     /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5 */
-
+/*     const eliminar = (str, del) => (typeof str === "string" && typeof del === "string" ? str.replace(new RegExp(del, "g"), "") : null);
+    console.log(eliminar("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
+    console.log(eliminar("xyz1, xyz2, xyz3, xyz4 y xyz5", "xy"));
+    console.log(eliminar("xyz1, xyz2, xyz3, xyz4 y xyz5", "1234"));
+    console.log(eliminar("xyz1, xyz2, xyz3, xyz4 y xyz5", 55));
+    console.log(eliminar("xyz1, xyz2, xyz3, xyz4 y xyz5")); */
 
 
     /* 9) Programa una función que obtenga un numero aleatorio entre 501 y 600 */
-
+/*     const numeroAleatorio = () => Math.round(Math.random() * 100 + 500);
+    for(let i=0; i<20;i++)
+      console.log(numeroAleatorio()); */
 
 
     /* 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true  */
-
+/*     const isCapicua = num => (typeof num === "number" ? num.toString().split("").reverse().join("") === num.toString() : null);
+    console.log(isCapicua(2002));
+    console.log(isCapicua(123));
+    console.log(isCapicua("2002")); */
 
 
     /* 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120 */
-
+/*     const factorial = n => (typeof n === "number" && n>0 ? (n>1 ? n*factorial(n-1) : 1): null);
+    console.log(factorial(5));
+    console.log(factorial(6));
+    console.log(factorial(2));
+    console.log(factorial(1));
+    console.log(factorial(0));
+    console.log(factorial(-1));
+    console.log(factorial("5"));
+    console.log(factorial()); */
 
 
     /* 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true */
 
-
+/*     const isPrimo = n => { 
+      let numeroPrimo = null;
+      if(typeof n==="number" && n>1) {
+        numeroPrimo = true;
+        for(let i=n-1; i>1; i--) {
+          if(n%i === 0) {
+            numeroPrimo = false;
+            break;
+          }
+        }
+      }
+      return numeroPrimo;
+    }
+    for(let i=0; i<200; i++) {
+      if(isPrimo(i)) console.log(`El numero ${i} es primo`);
+    }
+    console.log(isPrimo())
+    console.log(isPrimo("hola"));
+    console.log(isPrimo("13")) */
+    
 
     /* 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar */
+ /*    isPar = n => (typeof n ==="number") ? (n%2 ? false : true) : null;
 
+    console.log(isPar(2));
+    console.log(isPar(11));
+    console.log(isPar("5"));
+    console.log(isPar("")); */
 
 
     /* 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F */
+/*     convertirTemperatura = (n, opt) => {
+      let conversion = null;
+      if(typeof n === "number" && typeof opt === "string") {
+        switch(opt.toLocaleLowerCase()) {
+          case "c":
+            conversion = n * 9 / 5 + 32;
+            break;
+          case "f":
+            conversion = (n - 32) * 5/9;
+            break;
+        }
+        conversion = conversion.toFixed(1);
+      }
+      return conversion;
+    }
 
+    console.log(convertirTemperatura(39, "C"));
+    console.log(convertirTemperatura(102.2, "f"));
+    console.log(convertirTemperatura(0, "c"));
+    console.log(convertirTemperatura(0, "F"));
+    console.log(convertirTemperatura("35", "F")); */
 
 
     /* 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10 */
+/* 
+    const convertirBase = (n, b) => {
+      let conversion = null;
+      if(typeof n === "number" & typeof b === "number") {
+        switch(b) {
+          case 2:
+            conversion = n.toString().split("").reverse().map((elem, idx)=> elem*(2**idx)).reduce((conversion,n) => conversion+n);
+            break;
+          case 10:
+            let indice = 0;
+            while(n>1) {
+              conversion += n%2 * 10**indice;
+              n = Math.trunc(n/2);
+              indice++;
+            }
+            conversion += 10**indice;
+            break;
+        }
+      }
+      return conversion;
+    }
+
+    console.log(convertirBase(100, 2));
+    console.log(convertirBase(4, 10));
+    console.log(convertirBase(6737, 10)); */
 
 
 
     /* 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800 */
+/*     const montoFinal = (precio, desc) => (typeof precio === "number" & typeof desc === "number"? precio * (1-desc/100) : null )
 
-
+    console.log(montoFinal(1000, 20)); */
 
     /* 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020) */
-
+/*     const aniosPasados = (fecha) => {
+      anios = null;
+      let hoy = new Date();
+      if(fecha instanceof Date && hoy.getTime() > fecha.getTime()) {
+        anios = hoy.getFullYear() - fecha.getFullYear();
+        if((hoy.getMonth()*100 + hoy.getDay()) < (fecha.getMonth()*100 + fecha.getDay()))
+          anios--;
+      }
+      return anios;
+    }
+    console.log(aniosPasados(new Date(1982,4,23)));
+    console.log(aniosPasados(new Date(1982,12,23)));
+    console.log(aniosPasados(new Date(2084,1,1))); */
 
 
     /* 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5 */
+ /*    const vocalesConsonantes = str => {
+      let contador = { vocales: 0, consonantes: 0 }
+      if(typeof str === "string") {
+        str.toLocaleLowerCase().split("").forEach(elem => {
+          if(elem.search(/[aeiou]/) !== -1) contador.vocales++;
+          else if(elem.search(/[bcdfghjklmnñpqrstvwxyz]/) !== -1)  contador.consonantes++;
+        })
+      }
+      return contador;
+    }
 
+    console.log(vocalesConsonantes("Hola Mundo")); */
 
 
     /* 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero */
+/*     const validarNombre = str => (typeof str === "string" ? /^([A-Z]([a-záéíóú]+)\s)+[A-Z]([a-záéíóú]+)$/.test(str) : null);
 
-
+    console.log(validarNombre("Juan Carlos Perez"))
+    console.log(validarNombre("Juan Carlos Perez a"))
+    console.log(validarNombre("Caa AfaS"))
+    console.log(validarNombre("Matías León")) */
 
     /* 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero */
-
+/*     const validarCorreo = str => (typeof str === "string" ? /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/i.test(str) : null);
+    console.log(validarCorreo("Juan Carlos Perez"))
+    console.log(validarCorreo("Juanperez@gmail.com"))
+    console.log(validarCorreo("Juanperez.gmail.com")) */
 
 
     /* 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25] */
+/*     const elevaCuadrado = numeros => (numeros instanceof Array ? numeros.map((num)=>num*num): null);
 
+    console.log(elevaCuadrado([1, 2, 3, 4, 5])); */
 
 
     /* 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60] */
+/*     const extremos = numeros => (numeros instanceof Array ? [Math.max.apply(null, numeros), Math.min.apply(null, numeros)] : null);
 
-
+    console.log(extremos([1, 4, 5, 99, -60])) */
 
     /* 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]} */
-
+/*     const isPar = n => (typeof n ==="number") ? (n%2 ? false : true) : null;
+    const paresImpares = numeros => (numeros instanceof Array ? {pares: numeros.filter((num)=>isPar(num)), impares: numeros.filter((num)=>!isPar(num))} : null);
+    console.log(paresImpares([1,2,3,4,5,6,7,8,9,0])); */
 
 
     /* 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }*/
-
-
+/*     const ordenar = numeros => (numeros instanceof Array ? {asc: [...numeros].sort((a, b) =>(a - b)), desc: [...numeros].sort((a, b) =>(b - a))} : null);
+    console.log(ordenar([7, 5,7,8,6])); */
 
     /* 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]  */
+ /*    const eliminaDuplicados = arreglo => (arreglo instanceof Array ? arreglo.filter((elem, idx) => {
+      return arreglo.indexOf(elem) === idx;
+    }) : null);
 
+    console.log(eliminaDuplicados(["x", 10, "x", 2, "10", 10, true, true])); */
 
 
     /* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5 */
+    /* const promedio = array => {
+      let acumulador = null;
+      if(array instanceof Array) {
+        array.forEach((elem) => acumulador += elem);
+        acumulador /= array.length
+      }
+      return acumulador;
+    }
 
-
+    console.log(promedio([9,8,7,6,5,4,3,2,1,0])); */
 
     /* 27) Programa una clase llamada Pelicula.
         La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
@@ -131,6 +299,93 @@
 
         * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
         */
+
+    class Pelicula {
+      constructor({id, titulo, director, estreno, pais, generos, calificacion}) {
+        this.id = id;
+        this.titulo = titulo;
+        this.director = director;
+        this.estreno = estreno;
+        this.pais = pais;
+        this.generos = generos;
+        this.calificacion = (typeof calificacion === "number") ? Math.round(calificacion*10)/10 : null;
+        this.error = null;
+        this.validarIMDB();
+        this.validarTitulo();
+        this.validarDirector();
+        this.validarEstreno();
+        this.validarPais();
+        this.validarGenero();
+        this.validarCalificacion();
+      }
+      static generosAceptados() {
+        return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+      }
+
+      validarIMDB() {
+        if(!/^[a-zA-Z]{2}(\d){7}$/.test(this.id))  console.error("El formato para el IMDB es incorrecto");
+      }
+      validarTitulo() {
+        if(this.titulo.length <=0 || this.titulo.length > 100) console.error("El titulo no puede estar vacio ni superar los 100 caracteres");
+      }
+      validarDirector() {
+        if(this.director.length <=0 || this.director.length > 50) console.error("El director no puede estar vacio ni superar los 50 caracteres");
+      }
+      validarEstreno() {
+        if(!/^(19|20)\d{2}$/.test(this.estreno)) console.error("El año de estreno no corresponde")
+      }
+      validarPais() {
+        if(!(this.pais instanceof Array) || this.pais.length===0 || this.pais.some((elem)=> typeof elem !== "string" || elem.length===0)) console.error("Pais(es) mal ingresado(s)");
+      }
+      validarGenero() {
+        if(!(this.generos instanceof Array) || this.generos.length===0 ||  this.generos.some(elem => !(Pelicula.generosAceptados().includes(elem)))) console.error("Genero(s) mal ingresado(s)");
+      }
+      validarCalificacion() {
+        if(typeof this.calificacion !=="number") console.error("La calificación no es correcta");
+      }
+      imprimir() {
+        console.log(`IMDB: ${this.id}\nTitulo: ${this.titulo}\nDirector ${this.director}\nAño de estreno: ${this.estreno}\nPais(es): ${this.pais}\nGenero(s): ${this.generos}\nCalificación: ${this.calificacion}\n`)
+      }
+
+    }
+    const peli = new Pelicula({
+      id: "tt5489652",
+      titulo: "La momia",
+      director: "Tarantino",
+      estreno: 1994,
+      pais: ["Argentina", "Peru"],
+      generos: ["Comedy", "Drama"],
+      calificacion: 4.4184
+    })
+    peli.imprimir();
+
+    const pelis = [{
+      id: "tt5489652",
+      titulo: "La momia",
+      director: "Tarantino",
+      estreno: 1994,
+      pais: ["Argentina", "Peru"],
+      generos: ["Comedy", "Drama"],
+      calificacion: 4.4184
+    }, {
+      id: "tt5984312",
+      titulo: "La venganza",
+      director: "Prirulo",
+      estreno: 2021,
+      pais: ["España", "Argentina"],
+      generos: ["Crime", "Drama"],
+      calificacion: 7.95
+    }, {
+      id: "tt5434652",
+      titulo: "The mision",
+      director: "John Doe",
+      estreno: 1964,
+      pais: ["EEUU"],
+      generos: ["Action"],
+      calificacion: 9.52
+    }];
+
+    pelis.forEach((peli)=>new Pelicula(peli).imprimir());
   </script>
 </body>
 
