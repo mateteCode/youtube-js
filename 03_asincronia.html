@@ -183,9 +183,34 @@
           })
           .catch(err => console.error(err)); */
 
+    
+/*     const tirarDados = (veces) => new Promise((resolve, reject)=> {
+      let lanzamientos = [];
+      let exito = null;
+      let lanzada = null;
+      for(let i=0; i<veces; i++) {
+        lanzada = Array(5).fill().map(() => Math.round(Math.random()*5+1));
+        if(lanzada.every((elem) => elem%2 == 0)) {
+          exito = { ganador: lanzada, intento: i+1};
+          break;
+        }
+        else {
+          lanzamientos.push(lanzada);
+        }
+      }
+      if(exito) resolve(exito)
+      else reject({ lanzamientos })
+      
 
-
-
+    }); 
+   
+    tirarDados(10)
+      .then(result => console.log(`El dado ganador es ${result.ganador} y se logró en el intento ${result.intento}`))
+      .catch(error => {
+        console.log("No hubo lanzamientos exitosos:");
+        error.lanzamientos.forEach(lanzada => console.log(lanzada.reduce((str, valor) => str = str + "," + valor.toString())));
+      }); */
+      
 
     /* **********     Curso JavaScript: 48. Async - Await - #jonmircha     ********** */
 
@@ -260,6 +285,41 @@
     }
 
     funcionAsincronaExpresada(); */
+
+    const tirarDados = (veces) => new Promise((resolve, reject)=> {
+      let lanzamientos = [];
+      let exito = null;
+      let lanzada = null;
+      for(let i=0; i<veces; i++) {
+        lanzada = Array(5).fill().map(() => Math.round(Math.random()*5+1));
+        if(lanzada.every((elem) => elem%2 == 0)) {
+          exito = { ganador: lanzada, intento: i+1};
+          break;
+        }
+        else {
+          lanzamientos.push(lanzada);
+        }
+      }
+      if(exito) resolve(exito)
+      else reject({ lanzamientos })
+    });
+    
+    const inicioJuego = async () => {
+      try {
+        const result = await tirarDados(10);
+        console.log(`El dado ganador es ${result.ganador} y se logró en el intento ${result.intento}`);
+      }
+      catch(error) {
+        console.log("No hubo lanzamientos exitosos:");
+        error.lanzamientos.forEach(lanzada => console.log(lanzada.reduce((str, valor) => str = str + "," + valor.toString())));
+      }
+      finally {
+        console.log("Termino de ejecutarse la funcion async")
+      }
+    }
+    console.log("Antes de la funcion async");
+    inicioJuego();
+    console.log("Luego de la funcion async");
   </script>
 </body>
 
