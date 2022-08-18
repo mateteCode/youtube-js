@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      console.log("******************************");
+
+      window.age = 10; // <-- ¿me notas?
+
+      let greetingExterno = function () {
+        console.log("Greeting externo", this.age);
+      };
+
+      let greetingExternoArrow = () => {
+        console.log("Greeting externo Arrow", this.age);
+      };
+
+      let invocadorNormal = function (callback) {
+        callback();
+      };
+
+      let invocadorArrow = (callback) => {
+        callback();
+      };
+
+      // A diferencia de una función normal, aquí function define una función constructora.
+      function Person() {
+        //Dentro de una función constructora this hará referencia al objeto que construye
+        console.log(this);
+        this.age = 42; // <-- ¿me notas?  se utiliza como propiedad dentro del objeto creado mediante esta función constructora
+        this.age2 = Array.from([this.age]);
+
+        // Aquí no hay diferencia entre usar una función normal y una arrow function
+        this.greeting = function () {
+          console.log("Greeting funcion normal", this.age);
+        };
+
+        this.greeting2 = () => console.log("Greeting arrow function", this.age);
+
+        this.greeting3 = function () {
+          greetingExterno();
+        };
+
+        this.greeting4 = () => {
+          greetingExternoArrow();
+        };
+
+        this.greeting5 = function () {
+          (function () {
+            console.log("Función autoejecutable", this.age);
+          })();
+        };
+
+        this.greeting6 = function () {
+          (() => {
+            console.log("Función autoejecutable Arrow", this.age);
+          })();
+        };
+
+        console.log("Ejecución de funciones en tiempo de creación de objeto");
+        greetingExterno();
+        greetingExternoArrow();
+
+        invocadorNormal(function () {
+          console.log("Invocador normal, Callback Normal", this.age);
+        });
+        invocadorNormal(() =>
+          console.log("Invocador normal, Callback Arrow", this.age)
+        );
+
+        invocadorArrow(function () {
+          console.log("Invocador arrow, Callback Normal", this.age);
+        });
+        invocadorArrow(() =>
+          console.log("Invocador arrow, Callback Arrow", this.age)
+        );
+
+        /// CUANDO USAMOS UNA FUNCIÓN AL TIEMPO DE CREACIÓN DEL OBJETO SI HABRÁ DIFERENCIA
+
+        // Sin embargo una función dentro de la función constructora hará referencia con this al objeto window
+        setTimeout(function () {
+          // <-- La función tradicional se está ejecutando en el ámbito de window
+          console.log("this.age funcion normal", this.age); // genera "10" porque la función se ejecuta en el ámbito de window
+        }, 100);
+        setTimeout(() => {
+          // <-- Función flecha ejecutándose en el ámbito de "p" (una instancia de Person)
+          console.log("this.age arrow function", this.age); // genera "42" porque la función se ejecuta en el ámbito de Person
+          console.log("************");
+        }, 100);
+      }
+
+      //
+      var p = new Person(); // se utiliza la función como una función constructora
+      console.log("Ejecución de funciones después de creado el objeto");
+      p.greeting();
+      p.greeting2();
+      // p.greeting3();
+      // p.greeting4();
+      // p.greeting5();
+      // p.greeting6();
+
+      // console.log("Pila de funciones asíncronas");
+
+      // Si descomentamos esta línea el primer console.log del constructor Person, imprimirá también 42
+      // var p2 = Person();
+      // esto se debe a que se ejecuta como una función que cambia los valores this.age, this.greeting y this.greeting2
+      // para el objeto window. Ya que los setTimeout se ejecutar hasta el final ( por que esperan su posicionamiento en la pila)
+      // para el momento de su ejecución los valores ya han sido cambiados.
+
+    </script>
+  </body>
+</html>
